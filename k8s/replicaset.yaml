@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         app: "goserver"
-  spec:
-    containers:
-      - name: goserver
-        image: "bran00/hello-go:latest"
+    spec:
+      containers:
+        - name: goserver
+          image: "bran00/hello-go:latest"
