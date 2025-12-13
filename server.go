@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
-	"io"
+	"log"
 	"net/http"
 	"os"
 )
 
 func main() {
   http.HandleFunc("/", Hello)
-  http.HandleFunc("/", ConfigMap)
+  http.HandleFunc("/configmap", ConfigMap)
   http.ListenAndServe(":8080", nil)
 }
 
@@ -21,8 +21,10 @@ func Hello(w http.ResponseWriter, r *http.Request) {
 }
 
 func ConfigMap(w http.ResponseWriter, r *http.Request) {
-  
-  data, err := io.ReadFile("myfamily/family.txt")
+  data, err := os.ReadFile("myfamily/family.txt")
+  if err != nil {
+    log.Fatalf("Error reading file: ", err)
+  }
 
-  fmt.Printf(w, "Hello, I'm %s. I'm %s", name, age)
+  fmt.Fprintf(w, "My Family: %s", string(data))
 }
