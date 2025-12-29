@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: goserver-pvc
 spec:
-  acessModes:
+  accessModes:
     - ReadWriteOnce
   resources:
     requests:
