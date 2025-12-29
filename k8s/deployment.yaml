@@ -65,7 +65,7 @@ spec:
               name: goserver-volume
       
       volumes:
-        - name: goserver-pvc
+        - name: goserver-volume
           persistentVolumeClaim:
             claimName: goserver-pvc
         - name: config
